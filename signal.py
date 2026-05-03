@@ -41,7 +41,7 @@ class KrakenMeanReversion:
         closes = [float(entry[4]) for entry in ohlc_data]
         
         if len(closes) < self.sma_period + self.rsi_period:
-            return "Insufficient data"
+            return "HOLD", 0.0
             
         current_price = closes[-1]
         sma = self._calculate_sma(closes[:-1])
